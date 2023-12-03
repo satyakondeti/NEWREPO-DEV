@@ -1,0 +1,18 @@
+agent {
+    docker {
+        image 'maven:3.9.3-eclipse-temurin-17'
+        label 'my-defined-label'
+        args  '-v /tmp:/tmp'
+    }
+}
+docker also optionally accepts a registryUrl and registryCredentialsId parameters which will help to specify the Docker Registry to use and its credentials. The parameter registryCredentialsId could be used alone for private repositories within the docker hub. For example:
+
+agent {
+    docker {
+        image 'myregistry.com/node'
+        label 'my-defined-label'
+        registryUrl 'https://myregistry.com/'
+        registryCredentialsId 'myPredefinedCredentialsInJenkins'
+    }
+}
+
